@@ -4,6 +4,7 @@ import "./assets/App.css";
 
 //Componentes
 import { CardList } from "./components/card-list/card-list.component";
+import { SearchBox } from "./components/search-box/search-box.component";
 
 class App extends React.Component {
   constructor() {
@@ -26,7 +27,15 @@ class App extends React.Component {
     const filteredMonsters = monsters.filter((monster) =>
       monster.name.toLowerCase().includes(searchField.toLowerCase())
     );
-    return <div className="App"></div>;
+    return (
+      <div className="App">
+        <SearchBox
+          placeholder={"search monster"}
+          handlechange={(e) => this.setState({ searchField: e.target.value })}
+        />
+        <CardList monsters={filteredMonsters} />
+      </div>
+    );
   }
 }
 
