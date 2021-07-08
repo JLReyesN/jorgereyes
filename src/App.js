@@ -29,9 +29,10 @@ class App extends React.Component {
     );
     return (
       <div className="App">
+        <h1> Monster Rolodex </h1>
         <SearchBox
           placeholder={"search monster"}
-          handlechange={(e) => this.setState({ searchField: e.target.value })}
+          handleChange={(e) => this.setState({ searchField: e.target.value })}
         />
         <CardList monsters={filteredMonsters} />
       </div>
